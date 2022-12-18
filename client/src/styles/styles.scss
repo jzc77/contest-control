@@ -15,35 +15,37 @@
   outline: none;
 }
 
-body {
-  //background-color: rgb(39, 223, 39);
-  //background-image: linear-gradient(to bottom, #f6d365 0%, #fda085 100%);
-  //background-image: linear-gradient(to right, #f6d365 0%, #fda085 100%);
-  // make a visually appealing background with one continuous colour gradient from top to bottom
-  //background-image: linear-gradient(to bottom, #f6d365 0%, #fda085 100%);
-  margin: 0;
-  padding: 0;
-  height: 100vh;
-  background: linear-gradient(#e3b1e8, #b1b188);
-}
-
-
-.ReminderTop {
-  //background-color: green;
+@mixin twoMainReminderDivs {
   width: 700px;
   margin: 0 auto;
   // use media query to make it responsive
   @media (max-width: 850px) {
     width: 90%;
   }
-}
-
-.ReminderTopSubDiv {
-  //background-color: green;
   padding: 10px;
   border-radius: 10px;
   box-shadow: 0px 8px 15px rgba(0, 0, 0, 0.1);
   background-color: rgba(255, 255, 255, 0.15);
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  height: 100vh;
+  background: linear-gradient(#e3b1e8, #b1b188);
+}
+
+.siteTitle {
+  width: 700px;
+  margin: 0 auto;
+  @media (max-width: 850px) {
+    width: 90%;
+  }
+  padding: 10px;
+}
+
+.ReminderTopSubDiv {
+  @include twoMainReminderDivs;
 }
 
 .textfield {
@@ -53,25 +55,11 @@ body {
 
 .option-button {
   @include primaryButtonStyle;
+  &:hover {
+    background-color: #23c483;
+    color: #fff
+  }
 }
-
-.option-button:hover {
-  background-color: #23c483;
-  color: #fff
-}
-
-// option-button onclick make the background black
-// .option-button:focus {
-//   background-color: #23c483;
-// }
-
-// .option-button:active {
-//   background-color: #23c483;
-// }
-
-// .active {
-//   background-color: #ff0000;
-// }
 
 .submit-button {
   @include primaryButtonStyle;
@@ -81,10 +69,12 @@ body {
   display: block;
   margin-left: auto;
   margin-right: auto;
-  
-  // width: 700px;
-  // margin: 0 auto;
-  // @media (max-width: 850px) {
-  //   width: 90%;
-  // }
+  &:hover {
+    background-color: #0015ffb0;
+  }
+}
+
+.ReminderBottomSubDiv {
+  @include twoMainReminderDivs;
+  margin-top: 20px
 }
