@@ -5,8 +5,8 @@ import './styles/styles.scss';
 
 function ReminderTop() {
   return (
-    <div className="ReminderTop">
-      <h1>Contest Control</h1>
+    <>
+      <h1 className="siteTitle">Contest Control</h1>
       <div className="ReminderTopSubDiv">
         <p>Remind me of this link:</p>
         <InputLinkField />
@@ -14,7 +14,7 @@ function ReminderTop() {
         <Options />
         <Submit />
       </div>
-    </div>
+    </>
   );
 }
 

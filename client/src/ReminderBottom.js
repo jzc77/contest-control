@@ -2,7 +2,9 @@ import React from 'react'
 
 function ReminderBottom() {
   return (
-    <div>ReminderBottom</div>
+    <div className='ReminderBottomSubDiv'>
+      ReminderBottom
+    </div>
   )
 }
 
