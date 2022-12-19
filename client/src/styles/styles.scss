@@ -28,6 +28,11 @@
   background-color: rgba(255, 255, 255, 0.15);
 }
 
+@mixin textfieldPrimaryStyle {
+  background-color: rgb(119, 197, 182);
+  width: 100%,
+}
+
 body {
   margin: 0;
   padding: 0;
@@ -48,15 +53,55 @@ body {
   @include twoMainReminderDivs;
 }
 
-.textfield {
-  background-color: rgb(119, 197, 182);
-  width: 100%,
+.textfieldMainLink {
+  @include textfieldPrimaryStyle
 }
 
 .option-button {
   @include primaryButtonStyle;
   &:hover {
     background-color: #23c483;
+    color: #fff
+  }
+}
+
+
+// ------------------
+.CustomOptionsHiddenDiv {
+  @include twoMainReminderDivs;
+  width: 500px;
+  margin: 0 auto;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.CustomOptionsTextFieldDiv {
+  width: 50%;
+  float: left;
+  display: flex;
+  align-items: right;
+  justify-content: right;
+}
+
+// .CustomOptionsButtonDiv {
+
+// }
+
+// ------------------
+
+
+.textfieldCustomOption {
+  @include textfieldPrimaryStyle;
+  width: 100%; 
+}
+
+.buttonCustomUnits {
+  @include primaryButtonStyle;
+  width: 100%;
+  background-color: rgba(121, 121, 121, 0.5);
+  &:hover {
+    background-color: rgb(121, 121, 121);
     color: #fff
   }
 }

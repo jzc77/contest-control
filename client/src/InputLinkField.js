@@ -5,7 +5,7 @@ import './styles/styles.scss';
 function InputLinkField() {
   return (
     <TextField
-      className='textfield'
+      className='textfieldMainLink'
       label="Paste a link"
     // onChange={(e) => {
     //   setName(e.target.value);
