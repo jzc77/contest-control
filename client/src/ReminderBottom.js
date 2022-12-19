@@ -1,10 +1,14 @@
 import React from 'react'
+import ReminderHeading from './ReminderHeading'
 
 function ReminderBottom() {
   return (
-    <div className='ReminderBottomSubDiv'>
-      ReminderBottom
-    </div>
+    <>
+      <div className='ReminderBottomSubDiv'>
+        <ReminderHeading />
+      </div>
+      
+    </>
   )
 }
 

@@ -36,8 +36,9 @@
 body {
   margin: 0;
   padding: 0;
-  height: 100vh;
-  background: linear-gradient(#e3b1e8, #b1b188);
+  height: 100%;
+  //background: linear-gradient(#e3b1e8, #b1b188);
+  background: linear-gradient(#e3b1e8, #cecebb);
 }
 
 .siteTitle {
@@ -133,5 +134,19 @@ body {
 
 .ReminderBottomSubDiv {
   @include twoMainReminderDivs;
-  margin-top: 20px
+  margin-top: 20px;
+
+}
+
+.ReminderHeadingsDiv {
+  //background-color: green;
+  // make the text be in a row
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  // get all the h1
+  h3 {
+    margin: 0 50px 0;
+    //background-color: blue;
+  }
 }
