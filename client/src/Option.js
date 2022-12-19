@@ -18,7 +18,7 @@ function Option({ buttonInfo }) {
     // console.log(reminderValue);
     // console.log("this is event.target.id");
     // console.log(event.target.id);
-    // reminderValue2 = reminderValue;
+    //reminderValue2 = reminderValue; 
 
     const setButtonColour = () => {
       // setting the background color of all buttons
