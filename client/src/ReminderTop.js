@@ -1,6 +1,6 @@
 import InputLinkField from "./InputLinkField";
 import Options from "./Options";
-import CustomOptionsHidden from "./CustomOptionsHidden";
+// import CustomOptionsHidden from "./CustomOptionsHidden";
 import Submit from "./Submit";
 import './styles/styles.scss';
 
@@ -13,7 +13,7 @@ function ReminderTop() {
         <InputLinkField />
         <p>Remind me every:</p>
         <Options />
-        <CustomOptionsHidden />
+        {/* <CustomOptionsHidden /> */}
         <Submit />
       </div>
     </>
