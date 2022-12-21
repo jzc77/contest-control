@@ -1,7 +1,7 @@
 import React from 'react'
 import Option from './Option'
 
-function Options() {
+function Options({ setReminderObject }) {
   const buttonInfo = {
     '1 Day': 1,
     '3 Days': 3,
@@ -15,7 +15,7 @@ function Options() {
   }
 
   return (
-    <div><Option buttonInfo={buttonInfo} /></div>
+    <div><Option buttonInfo={buttonInfo} setReminderObject={setReminderObject} /></div>
   )
 }
 

@@ -32,7 +32,7 @@ function CustomOptionsHidden({ customButtonClicked }) {
 
     //console.log("this is event");
     //console.log(event);
-    functionToSetMenuItemColor(event);
+    //functionToSetMenuItemColor(event);  // doesn't work
     
     //let specificMenuItem = document.querySelectorAll(`[value="${event.target.attributes.value.textContent}"]`)
     //specificMenuItem[0].style.backgroundColor = "green"
