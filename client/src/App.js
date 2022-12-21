@@ -5,7 +5,7 @@ import ReminderBottom from './ReminderBottom';
 
 function App() {
   const [link, setLink] = useState("")  // working
-  const [buttonInfo, setButtonInfo] = useState("")
+  const [buttonInfo, setButtonInfo] = useState("1 Day")
   const [reminderValueInDays, setReminderValueInDays] = useState(1)
 
   //const [reminderObject, setReminderObject] = useState({})
@@ -15,7 +15,7 @@ function App() {
 
   console.log("this is buttonInfo from App.js: ", buttonInfo);
   console.log("this is reminderValueInDays from App.js: ", reminderValueInDays);
-
+  // TO DO: Handle "CUSTOM" selection
   return (
     <>
       <ReminderTop setLink={setLink} setButtonInfo={setButtonInfo} setReminderValueInDays={setReminderValueInDays} />

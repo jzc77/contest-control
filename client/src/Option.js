@@ -4,8 +4,16 @@ import './styles/styles.scss';
 
 function Option({ buttonInfo, setButtonInfo, setReminderValueInDays }) {
   const [customButtonClicked, setCustomButtonClicked] = useState(false)
+
   const handleClick = (reminderValue, event) => {
     setReminderValueInDays(reminderValue)  // e.g. 90
+
+    // set the info of the button that was clicked to the state (e.g. "1 DAY")
+    for (let key in buttonInfo) {
+      if (event.target.id == key) {
+        setButtonInfo(key.toUpperCase())
+      }
+    }
 
     const setButtonColour = () => {
       // setting the background color of all buttons
