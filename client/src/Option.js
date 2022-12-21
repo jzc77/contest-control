@@ -2,23 +2,17 @@ import React, { useState } from 'react'
 import CustomOptionsHidden from "./CustomOptionsHidden";
 import './styles/styles.scss';
 
-function Option({ buttonInfo }) {
-  const [reminderDate, setReminderDate] = useState(null)
+function Option({ buttonInfo, setReminderObject }) {
+  //const [reminderDate, setReminderDate] = useState(null)
+
   const [customButtonClicked, setCustomButtonClicked] = useState(false)
-  console.log("this is reminderDate");
-  console.log(reminderDate);
-  // const setDate = (e) => {
-  //   console.log(e.target.value)
-  //   //setReminderDate = e.target.value
-  // }
-  
+  //console.log("this is reminderDate");
+  //console.log(reminderDate);
+
   const handleClick = (reminderValue, event) => {
-    setReminderDate(reminderValue)
-    // console.log("this is reminderValue");
-    // console.log(reminderValue);
-    // console.log("this is event.target.id");
-    // console.log(event.target.id);
-    //reminderValue2 = reminderValue; 
+    //setReminderDate(reminderValue)  // e.g. 90
+    //setReminderObject({ "reminderValue": reminderValue })
+
 
     const setButtonColour = () => {
       // setting the background color of all buttons
@@ -46,6 +40,7 @@ function Option({ buttonInfo }) {
       setCustomButtonClicked(false)
       setButtonColour()
     }
+
   }
 
   return (

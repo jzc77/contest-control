@@ -4,16 +4,15 @@ import Options from "./Options";
 import Submit from "./Submit";
 import './styles/styles.scss';
 
-function ReminderTop() {
+function ReminderTop( { setReminderObject }) {
   return (
     <>
       <h1 className="siteTitle">Contest Control</h1>
       <div className="ReminderTopSubDiv">
         <p>Remind me of this link:</p>
-        <InputLinkField />
+        <InputLinkField setReminderObject={setReminderObject} />
         <p>Remind me every:</p>
-        <Options />
-        {/* <CustomOptionsHidden /> */}
+        <Options setReminderObject={setReminderObject} />
         <Submit />
       </div>
     </>
