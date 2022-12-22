@@ -140,7 +140,7 @@ body {
 }
 
 .ReminderHeadingsDiv {
-  //background-color: green;
+  background-color: yellowgreen;
   // make the text be in a row
   display: flex;
   align-items: center;
@@ -148,6 +148,21 @@ body {
   // get all the h1
   h3 {
     margin: 0 50px 0;
-    //background-color: blue;
+    background-color: grey;
+  }
+}
+
+.ReminderRowDiv {
+  display: flex;
+  align-items: center;
+  justify-content: left;
+  background-color: blue;
+  a {
+    margin: 0 50px 0;
+    background-color: green;
+  }
+  p {
+    // margin: 0 50px 0;
+    background-color: purple;
   }
 }
