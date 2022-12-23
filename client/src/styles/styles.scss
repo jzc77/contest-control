@@ -18,10 +18,12 @@
 @mixin twoMainReminderDivs {
   width: 700px;
   margin: 0 auto;
+
   // use media query to make it responsive
   @media (max-width: 850px) {
     width: 90%;
   }
+
   padding: 10px;
   border-radius: 10px;
   box-shadow: 0px 8px 15px rgba(0, 0, 0, 0.1);
@@ -45,9 +47,11 @@ body {
 .siteTitle {
   width: 700px;
   margin: 0 auto;
+
   @media (max-width: 850px) {
     width: 90%;
   }
+
   padding: 10px;
 }
 
@@ -61,6 +65,7 @@ body {
 
 .option-button {
   @include primaryButtonStyle;
+
   &:hover {
     background-color: #23c483;
     color: #fff
@@ -95,7 +100,7 @@ body {
 
 .textfieldCustomOption {
   @include textfieldPrimaryStyle;
-  width: 100%; 
+  width: 100%;
 }
 
 .buttonCustomUnits {
@@ -106,8 +111,9 @@ body {
   display: flex;
   align-items: center;
   justify-content: center;
-  
+
   background-color: rgba(121, 121, 121, 0.5);
+
   &:hover {
     background-color: rgb(121, 121, 121);
     color: #fff
@@ -116,7 +122,8 @@ body {
 
 .menuItemsDiv {
   &:hover {
-    color: rgb(119, 197, 182);;
+    color: rgb(119, 197, 182);
+    ;
   }
 }
 
@@ -128,6 +135,7 @@ body {
   display: block;
   margin-left: auto;
   margin-right: auto;
+
   &:hover {
     background-color: #0015ffb0;
   }
@@ -145,6 +153,7 @@ body {
   display: flex;
   align-items: center;
   justify-content: center;
+
   // get all the h1
   h3 {
     margin: 0 50px 0;
@@ -152,17 +161,165 @@ body {
   }
 }
 
-.ReminderRowDiv {
+// .ReminderRowDiv {
+//   display: flex;
+//   align-items: center;
+//   justify-content: left;
+//   background-color: blue;
+//   a {
+//     margin: 0 50px 0;
+//     background-color: green;
+//   }
+//   p {
+//     // margin: 0 50px 0;
+//     background-color: purple;
+//   }
+// }
+
+@mixin commonRowItemStyle {
+  // make div half of parent div width
+  //width: 100%;
+  //width: 100%;
+  // make the text be in a row
   display: flex;
   align-items: center;
   justify-content: left;
-  background-color: blue;
-  a {
-    margin: 0 50px 0;
-    background-color: green;
-  }
-  p {
-    // margin: 0 50px 0;
-    background-color: purple;
-  }
+  //overflow:hidden;
+
+
+
 }
+
+.ReminderRowDiv {
+  @include commonRowItemStyle;
+  background-color: green;
+  //overflow:hidden;
+
+
+}
+
+.LinkDiv {
+  background-color: purple;
+  padding: 16px 0;
+  width: "50px";
+  overflow: hidden;
+  max-width: 80%;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  
+
+  //margin: 16px 0;
+  a {
+    //margin: 16px 0;
+    padding: 0 16px 0;
+    //background-color: yellowgreen;
+  }
+
+  @media (width: 100px) {
+    width: 290px;
+  }
+
+
+}
+
+.ButtonInfoDiv {
+  //@include commonRowItemStyle;
+  background-color: burlywood;
+  width: "100%";
+  padding: 0 16px 0;
+
+}
+
+.tableDivMain {
+  overflow: hidden;
+}
+
+table {
+  //@include commonRowItemStyle;
+  //background-color: green;
+  
+  border: solid 1px blue;
+  table-layout: fixed;
+  width: 100%;
+
+}
+
+thead {
+    //@include commonRowItemStyle;
+    //background-color: yellow;
+    max-width: 80%;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    
+}
+
+tr {
+    //@include commonRowItemStyle;
+    //background-color: red;
+    max-width: 80%;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+
+    // display: flex;
+    // align-items: center;
+    // justify-content: left;
+    
+    // padding: 16px 0;
+    // width: 50px;
+    // overflow: hidden;
+    // max-width: 80%;
+    //text-overflow: ellipsis;
+    // white-space: nowrap;
+    :nth-child(1) {
+      width: 80%;
+    }
+
+    :nth-child(2) {
+      // align items to the center
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      width: 100%;
+    }
+}
+
+th {
+    //@include commonRowItemStyle;
+    border-bottom: 'solid 3px red';
+    background-color: 'aliceblue';
+    // color: 'black',
+    font-weight: 'bold';
+    border: solid 1px gray;
+
+    //padding: 0 16px 0;
+
+    //width: 20px;
+    //white-space: nowrap;
+    // :nth-child(1) {
+    //   width: 60px;
+    // }
+
+}
+
+tbody {
+    //@include commonRowItemStyle;
+    //background-color: blue;
+    //width: "20px";
+}
+
+td {
+    //@include commonRowItemStyle;
+    background-color: rgb(221, 126, 25);
+    // padding: 5px;
+    border: solid 1px gray;
+    // background-color: 'papayawhip';
+    // width: "50%";
+    // overflow: "clip";
+
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+
+    width: 70px;
+}
+
