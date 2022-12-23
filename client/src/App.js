@@ -7,6 +7,7 @@ function App() {
   const [link, setLink] = useState("")  // working
   const [buttonInfo, setButtonInfo] = useState("1 Day")
   const [reminderValueInDays, setReminderValueInDays] = useState(1)
+  const [isSubmitClicked, setIsSubmitClicked] = useState(false)
 
   //const [reminderObject, setReminderObject] = useState({})
   //setReminderObject({ "link": link, "buttonInfo": buttonInfo, "reminderValueInDays": reminderValueInDays })
@@ -18,8 +19,21 @@ function App() {
   // TO DO: Handle "CUSTOM" selection
   return (
     <>
-      <ReminderTop setLink={setLink} setButtonInfo={setButtonInfo} setReminderValueInDays={setReminderValueInDays} />
-      <ReminderBottom setLink={setLink} setButtonInfo={setButtonInfo} setReminderValueInDays={setReminderValueInDays} />
+      <ReminderTop
+        link={link}
+        setLink={setLink}
+        buttonInfo={buttonInfo}
+        setButtonInfo={setButtonInfo}
+        setReminderValueInDays={setReminderValueInDays}
+        setIsSubmitClicked={setIsSubmitClicked}
+      />
+      <ReminderBottom
+        setLink={setLink}
+        buttonInfo={buttonInfo}
+        setButtonInfo={setButtonInfo}
+        setReminderValueInDays={setReminderValueInDays}
+        isSubmitClicked={isSubmitClicked}
+      />
     </>
   )
 };

@@ -4,7 +4,7 @@ import Options from "./Options";
 import Submit from "./Submit";
 import './styles/styles.scss';
 
-function ReminderTop({ setLink, setButtonInfo, setReminderValueInDays }) {
+function ReminderTop({ link, setLink, setButtonInfo, setReminderValueInDays, setIsSubmitClicked }) {
   return (
     <>
       <h1 className="siteTitle">Contest Control</h1>
@@ -13,7 +13,7 @@ function ReminderTop({ setLink, setButtonInfo, setReminderValueInDays }) {
         <InputLinkField setLink={setLink} />
         <p>Remind me every:</p>
         <Options setButtonInfo={setButtonInfo} setReminderValueInDays={setReminderValueInDays} />
-        <Submit />
+        <Submit link={link} setIsSubmitClicked={setIsSubmitClicked} />
       </div>
     </>
   );
