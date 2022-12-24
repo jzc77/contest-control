@@ -2,7 +2,7 @@ import React, { useMemo, useState, useEffect } from "react";
 import { useTable } from 'react-table'
 
 function TableOfLinks({ link, buttonInfo, isSubmitClicked, setIsSubmitClicked }) {
-  const data = useMemo(
+  const data1 = useMemo(
     () => [
       {
         col1: link,
@@ -21,7 +21,7 @@ function TableOfLinks({ link, buttonInfo, isSubmitClicked, setIsSubmitClicked })
   )
 
 
-  const columns = useMemo(
+  const columns1 = useMemo(
     () => [
       {
         Header: 'Links',
@@ -35,6 +35,38 @@ function TableOfLinks({ link, buttonInfo, isSubmitClicked, setIsSubmitClicked })
     []
   )
 
+  const data2 = useMemo(
+    () => [
+      {
+        col1: link,
+        col2: 'World2',
+      },
+      {
+        col1: 'some2 test of very very very very very long text to see how it wraps around the table cell',
+        col2: 'rocks2',
+      },
+      {
+        col1: 'whatever2',
+        col2: 'you want2',
+      },
+    ],
+    []
+  )
+
+
+  const columns2 = useMemo(
+    () => [
+      {
+        Header: 'Links2',
+        accessor: 'col1', // accessor is the "key" in the data
+      },
+      {
+        Header: 'Remind me every2',
+        accessor: 'col2',
+      },
+    ],
+    []
+  )
 
   //const tableInstance = useTable({ columns, data })
 
@@ -44,7 +76,9 @@ function TableOfLinks({ link, buttonInfo, isSubmitClicked, setIsSubmitClicked })
     headerGroups,
     rows,
     prepareRow,
-  } = useTable({ columns, data })
+  } = useTable( isSubmitClicked == true ? { columns: columns1, data: data1 } : { columns: columns2, data: data2 } )
+    
+    //{ columns: columns1, data: data1 })
 
   //isSubmitClicked == true && 
 
@@ -54,8 +88,8 @@ function TableOfLinks({ link, buttonInfo, isSubmitClicked, setIsSubmitClicked })
   //isSubmitClicked == false;
 
 
-  if (isSubmitClicked == true) {
-    return (
+  //if (isSubmitClicked == true) {
+    return ( // new values
       // <p>submit is clicked</p>
       <div className="tableDivMain">
         <table {...getTableProps() && isSubmitClicked == true} className={"tableElement"}
@@ -109,11 +143,61 @@ function TableOfLinks({ link, buttonInfo, isSubmitClicked, setIsSubmitClicked })
       </div>
     )
 
-  } else {
-    return (
-      <p>submit is not clicked</p>
-    )
-  }
+  // } else {
+  //   return ( // old values
+  //     //<p>submit is not clicked</p>
+  //     <div className="tableDivMain">
+  //     <table {...getTableProps() && isSubmitClicked == true} className={"tableElement"}
+  //     // style={{ border: 'solid 1px blue' }}
+  //     >
+  //       <thead className={"tableHeadGroup"}>
+  //         {headerGroups.map(headerGroup => (
+  //           <tr {...headerGroup.getHeaderGroupProps()}>
+  //             {headerGroup.headers.map(column => (
+  //               <th className={"tableHeadElement"}
+  //                 {...column.getHeaderProps()}
+  //                 style={{
+  //                   // borderBottom: 'solid 3px red',
+  //                   // background: 'aliceblue',
+  //                   // color: 'black',
+  //                   // fontWeight: 'bold',
+  //                 }}
+  //               >
+  //                 {column.render('Header')}
+  //               </th>
+  //             ))}
+  //           </tr>
+  //         ))}
+  //       </thead>
+  //       <tbody {...getTableBodyProps()}>
+  //         {rows.map(row => {
+  //           prepareRow(row)
+  //           return (
+  //             <tr {...row.getRowProps()}>
+  //               {row.cells.map(cell => {
+  //                 return (
+  //                   <td
+  //                     {...cell.getCellProps()}
+  //                     style={{
+  //                       // padding: '10px',
+  //                       // border: 'solid 1px gray',
+  //                       // background: 'papayawhip',
+  //                       // width: "50%",
+  //                       // overflow: "clip"
+  //                     }}
+  //                   >
+  //                     {cell.render('Cell')}
+  //                   </td>
+  //                 )
+  //               })}
+  //             </tr>
+  //           )
+  //         })}
+  //       </tbody>
+  //     </table>
+  //   </div>
+  //   )
+  //}
 
 
 }

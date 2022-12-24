@@ -4,6 +4,8 @@ function Submit({ link, isSubmitClicked, setIsSubmitClicked }) {
 
   const submitButton = document.querySelector(".submit-button");
   document.addEventListener("mousedown", (e) => {
+    //console.log("this is e.target:");
+    //console.log(e.target);
     if (submitButton.contains(e.target)) {
       //console.log("clicked inside");
       setIsSubmitClicked(true)

@@ -14,7 +14,7 @@ function App() {
   //console.log("this is reminderObject from App.js");
   //console.log(reminderObject);
 
-  console.log("this is link from App.js: ", link);
+  //console.log("this is link from App.js: ", link);
   //console.log("this is buttonInfo from App.js: ", buttonInfo);
   //console.log("this is reminderValueInDays from App.js: ", reminderValueInDays);
   // TO DO: Handle "CUSTOM" selection
