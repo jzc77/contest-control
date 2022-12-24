@@ -1,18 +1,15 @@
 import React from 'react'
 import ReminderHeading from './ReminderHeading'
 import LinkRow from './LinkRow'
-import TestTable from './TestTable'
+import TableOfLinks from './TableOfLinks'
 
 function ReminderBottom({ buttonInfo }) {
   return (
     <>
       <div className='ReminderBottomSubDiv'>
-      <TestTable />
+        <TableOfLinks />
         {/* <ReminderHeading /> */}
-        
-        {/* <LinkRow buttonInfo={buttonInfo} />
-        <LinkRow buttonInfo={"buttonInfo"} /> */}
-        
+        {/* <LinkRow buttonInfo={buttonInfo} /> */}
       </div>
 
     </>
