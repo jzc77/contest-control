@@ -1,15 +1,15 @@
 import React, { useMemo, useState, useEffect } from "react";
 import { useTable } from 'react-table'
 
-function TestTable() {
+function TableOfLinks({ link, buttonInfo, isSubmitClicked, setIsSubmitClicked }) {
   const data = useMemo(
     () => [
       {
-        col1: 'Hello',
+        col1: link,
         col2: 'World',
       },
       {
-        col1: 'some test of very very very very verylong text to see how it wraps around the table cell',
+        col1: 'some test of very very very very very long text to see how it wraps around the table cell',
         col2: 'rocks',
       },
       {
@@ -24,11 +24,11 @@ function TestTable() {
   const columns = useMemo(
     () => [
       {
-        Header: 'Column 1',
+        Header: 'Links',
         accessor: 'col1', // accessor is the "key" in the data
       },
       {
-        Header: 'Column 2',
+        Header: 'Remind me every',
         accessor: 'col2',
       },
     ],
@@ -37,6 +37,7 @@ function TestTable() {
 
 
   //const tableInstance = useTable({ columns, data })
+
   const {
     getTableProps,
     getTableBodyProps,
@@ -45,62 +46,110 @@ function TestTable() {
     prepareRow,
   } = useTable({ columns, data })
 
-  console.log("this is getTableProps");
-  console.log(getTableProps);
+  //isSubmitClicked == true && 
 
-  return (
-    <div className="tableDivMain">
-      <table {...getTableProps()} className={"tableElement"} 
-      // style={{ border: 'solid 1px blue' }}
-      >
-        <thead className={"tableHeadGroup"}>
-          {headerGroups.map(headerGroup => (
-            <tr {...headerGroup.getHeaderGroupProps()}>
-              {headerGroup.headers.map(column => (
-                <th className={"tableHeadElement"}
-                  {...column.getHeaderProps()}
-                  style={{
-                    // borderBottom: 'solid 3px red',
-                    // background: 'aliceblue',
-                    // color: 'black',
-                    // fontWeight: 'bold',
-                  }}
-                >
-                  {column.render('Header')}
-                </th>
-              ))}
-            </tr>
-          ))}
-        </thead>
-        <tbody {...getTableBodyProps()}>
-          {rows.map(row => {
-            prepareRow(row)
-            return (
-              <tr {...row.getRowProps()}>
-                {row.cells.map(cell => {
-                  return (
-                    <td
-                      {...cell.getCellProps()}
-                      style={{
-                        // padding: '10px',
-                        // border: 'solid 1px gray',
-                        // background: 'papayawhip',
-                        // width: "50%",
-                        // overflow: "clip"
-                      }}
-                    >
-                      {cell.render('Cell')}
-                    </td>
-                  )
-                })}
+  //console.log("this is getTableProps");
+  //console.log(getTableProps);
+  //console.log("this is isSubmitClicked: ", isSubmitClicked);
+  //isSubmitClicked == false;
+
+
+  if (isSubmitClicked == true) {
+    return (
+      // <p>submit is clicked</p>
+      <div className="tableDivMain">
+        <table {...getTableProps() && isSubmitClicked == true} className={"tableElement"}
+        // style={{ border: 'solid 1px blue' }}
+        >
+          <thead className={"tableHeadGroup"}>
+            {headerGroups.map(headerGroup => (
+              <tr {...headerGroup.getHeaderGroupProps()}>
+                {headerGroup.headers.map(column => (
+                  <th className={"tableHeadElement"}
+                    {...column.getHeaderProps()}
+                    style={{
+                      // borderBottom: 'solid 3px red',
+                      // background: 'aliceblue',
+                      // color: 'black',
+                      // fontWeight: 'bold',
+                    }}
+                  >
+                    {column.render('Header')}
+                  </th>
+                ))}
               </tr>
-            )
-          })}
-        </tbody>
-      </table>
-    </div>
-  )
+            ))}
+          </thead>
+          <tbody {...getTableBodyProps()}>
+            {rows.map(row => {
+              prepareRow(row)
+              return (
+                <tr {...row.getRowProps()}>
+                  {row.cells.map(cell => {
+                    return (
+                      <td
+                        {...cell.getCellProps()}
+                        style={{
+                          // padding: '10px',
+                          // border: 'solid 1px gray',
+                          // background: 'papayawhip',
+                          // width: "50%",
+                          // overflow: "clip"
+                        }}
+                      >
+                        {cell.render('Cell')}
+                      </td>
+                    )
+                  })}
+                </tr>
+              )
+            })}
+          </tbody>
+        </table>
+      </div>
+    )
+
+  } else {
+    return (
+      <p>submit is not clicked</p>
+    )
+  }
+
+
 }
 
-export default TestTable
+export default TableOfLinks
 
+// SN: Original
+// const data = useMemo(
+//   () => [
+//     {
+//       col1: 'Hello',
+//       col2: 'World',
+//     },
+//     {
+//       col1: 'some test of very very very very very long text to see how it wraps around the table cell',
+//       col2: 'rocks',
+//     },
+//     {
+//       col1: 'whatever',
+//       col2: 'you want',
+//     },
+//   ],
+//   []
+// )
+
+
+// const columns = useMemo(
+//   () => [
+//     {
+//       Header: 'Links',
+//       accessor: 'col1', // accessor is the "key" in the data
+//     },
+//     {
+//       Header: 'Remind me every',
+//       accessor: 'col2',
+//     },
+//   ],
+//   []
+// )

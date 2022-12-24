@@ -286,7 +286,7 @@ tr {
 th {
     //@include commonRowItemStyle;
     border-bottom: 'solid 3px red';
-    background-color: 'aliceblue';
+    background-color: 'red';
     // color: 'black',
     font-weight: 'bold';
     border: solid 1px gray;
@@ -297,6 +297,19 @@ th {
     //white-space: nowrap;
     // :nth-child(1) {
     //   width: 60px;
+    // }
+
+
+    // max-width: 20%;
+    // text-overflow: ellipsis;
+    // white-space: nowrap;
+
+    // :nth-child(2) {
+    //   // align items to the center
+    //   display: flex;
+    //   align-items: center;
+    //   justify-content: center;
+    //   width: 20%;
     // }
 
 }
