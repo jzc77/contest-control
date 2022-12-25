@@ -1,27 +1,29 @@
 import React, { useMemo, useState, useEffect } from "react";
 import { useTable } from 'react-table'
 
-function TableOfLinks({ link, buttonInfo, isSubmitClicked, setIsSubmitClicked }) {
-  // SN: pass in an array of objects, each object is a row
-  const testArray = [{col1: "test1", col2: "test2"}, {col1: "test3", col2: "test4"}]  // works
+function TableOfLinks({ listOfLinks, listOfButtonInfo, isSubmitClicked }) {
+  var [finalArrayOfObjects, setFinalArrayOfObjects] = useState([])
 
-  // SN: Package up link and buttonInfo into an object
-  // var listOfLinks = []
-  // var listOfButtonInfo = []
+  const finalArrayOfObjects2 = []  // e.g. [{col1: "test1", col2: "test2"}, {col1: "test3", col2: "test4"}]
+  for (var i = 0; i < listOfLinks.length; i++) {
+    var tempObj = {}
+    tempObj["col1"] = listOfLinks[i]
+    tempObj["col2"] = listOfButtonInfo[i]
+    finalArrayOfObjects2.push(tempObj)
+  }
 
-  // if (listOfLinks.includes(link) === false) {
-  //   listOfLinks.push(link)
-  // }
-  
-  // console.log("this is listOfLinks: ", listOfLinks);
+  useEffect(() => {
+    setFinalArrayOfObjects(finalArrayOfObjects2)
+  }, [finalArrayOfObjects2 && isSubmitClicked == true])
+  console.log("this is finalArrayOfObjects2: ", finalArrayOfObjects2);
+  finalArrayOfObjects = finalArrayOfObjects2
+  console.log("this is finalArrayOfObjects: ", finalArrayOfObjects);
 
-  
   const data1 = useMemo(
-    () => testArray,
+    () => finalArrayOfObjects,
     []
   )
-
-
+ 
   const columns1 = useMemo(
     () => [
       {
@@ -36,170 +38,66 @@ function TableOfLinks({ link, buttonInfo, isSubmitClicked, setIsSubmitClicked })
     []
   )
 
-  const data2 = useMemo(
-    () => [
-      {
-        col1: 'Hello2',
-        col2: 'World2',
-      },
-      {
-        col1: 'some2 test of very very very very very long text to see how it wraps around the table cell',
-        col2: 'rocks2',
-      },
-      {
-        col1: 'whatever2',
-        col2: 'you want2',
-      },
-    ],
-    []
-  )
-
-
-  const columns2 = useMemo(
-    () => [
-      {
-        Header: 'Links2',
-        accessor: 'col1', // accessor is the "key" in the data
-      },
-      {
-        Header: 'Remind me every2',
-        accessor: 'col2',
-      },
-    ],
-    []
-  )
-
-  //const tableInstance = useTable({ columns, data })
-
   const {
     getTableProps,
     getTableBodyProps,
     headerGroups,
     rows,
     prepareRow,
-  } = useTable( isSubmitClicked == true ? { columns: columns1, data: data1 } : { columns: columns2, data: data2 } )
-    
-    //{ columns: columns1, data: data1 })
+  } = useTable(isSubmitClicked == true ? { columns: columns1, data: data1 } : { columns: columns1, data: data1 })
 
-  //isSubmitClicked == true && 
-
-  //console.log("this is getTableProps");
-  //console.log(getTableProps);
-  //console.log("this is isSubmitClicked: ", isSubmitClicked);
-  //isSubmitClicked == false;
-
-
-  //if (isSubmitClicked == true) {
-    return ( // new values
-      // <p>submit is clicked</p>
-      <div className="tableDivMain">
-        <table {...getTableProps() && isSubmitClicked == true} className={"tableElement"}
-        // style={{ border: 'solid 1px blue' }}
-        >
-          <thead className={"tableHeadGroup"}>
-            {headerGroups.map(headerGroup => (
-              <tr {...headerGroup.getHeaderGroupProps()}>
-                {headerGroup.headers.map(column => (
-                  <th className={"tableHeadElement"}
-                    {...column.getHeaderProps()}
-                    style={{
-                      // borderBottom: 'solid 3px red',
-                      // background: 'aliceblue',
-                      // color: 'black',
-                      // fontWeight: 'bold',
-                    }}
-                  >
-                    {column.render('Header')}
-                  </th>
-                ))}
+  return ( // new values
+    <div className="tableDivMain">
+      <table {...getTableProps() && isSubmitClicked == true} className={"tableElement"}
+      // style={{ border: 'solid 1px blue' }}
+      >
+        <thead className={"tableHeadGroup"}>
+          {headerGroups.map(headerGroup => (
+            <tr {...headerGroup.getHeaderGroupProps()}>
+              {headerGroup.headers.map(column => (
+                <th className={"tableHeadElement"}
+                  {...column.getHeaderProps()}
+                  style={{
+                    // borderBottom: 'solid 3px red',
+                    // background: 'aliceblue',
+                    // color: 'black',
+                    // fontWeight: 'bold',
+                  }}
+                >
+                  {column.render('Header')}
+                </th>
+              ))}
+            </tr>
+          ))}
+        </thead>
+        <tbody {...getTableBodyProps()}>
+          {rows.map(row => {
+            prepareRow(row)
+            return (
+              <tr {...row.getRowProps()}>
+                {row.cells.map(cell => {
+                  return (
+                    <td
+                      {...cell.getCellProps()}
+                      style={{
+                        // padding: '10px',
+                        // border: 'solid 1px gray',
+                        // background: 'papayawhip',
+                        // width: "50%",
+                        // overflow: "clip"
+                      }}
+                    >
+                      {cell.render('Cell')}
+                    </td>
+                  )
+                })}
               </tr>
-            ))}
-          </thead>
-          <tbody {...getTableBodyProps()}>
-            {rows.map(row => {
-              prepareRow(row)
-              return (
-                <tr {...row.getRowProps()}>
-                  {row.cells.map(cell => {
-                    return (
-                      <td
-                        {...cell.getCellProps()}
-                        style={{
-                          // padding: '10px',
-                          // border: 'solid 1px gray',
-                          // background: 'papayawhip',
-                          // width: "50%",
-                          // overflow: "clip"
-                        }}
-                      >
-                        {cell.render('Cell')}
-                      </td>
-                    )
-                  })}
-                </tr>
-              )
-            })}
-          </tbody>
-        </table>
-      </div>
-    )
-
-  // } else {
-  //   return ( // old values
-  //     //<p>submit is not clicked</p>
-  //     <div className="tableDivMain">
-  //     <table {...getTableProps() && isSubmitClicked == true} className={"tableElement"}
-  //     // style={{ border: 'solid 1px blue' }}
-  //     >
-  //       <thead className={"tableHeadGroup"}>
-  //         {headerGroups.map(headerGroup => (
-  //           <tr {...headerGroup.getHeaderGroupProps()}>
-  //             {headerGroup.headers.map(column => (
-  //               <th className={"tableHeadElement"}
-  //                 {...column.getHeaderProps()}
-  //                 style={{
-  //                   // borderBottom: 'solid 3px red',
-  //                   // background: 'aliceblue',
-  //                   // color: 'black',
-  //                   // fontWeight: 'bold',
-  //                 }}
-  //               >
-  //                 {column.render('Header')}
-  //               </th>
-  //             ))}
-  //           </tr>
-  //         ))}
-  //       </thead>
-  //       <tbody {...getTableBodyProps()}>
-  //         {rows.map(row => {
-  //           prepareRow(row)
-  //           return (
-  //             <tr {...row.getRowProps()}>
-  //               {row.cells.map(cell => {
-  //                 return (
-  //                   <td
-  //                     {...cell.getCellProps()}
-  //                     style={{
-  //                       // padding: '10px',
-  //                       // border: 'solid 1px gray',
-  //                       // background: 'papayawhip',
-  //                       // width: "50%",
-  //                       // overflow: "clip"
-  //                     }}
-  //                   >
-  //                     {cell.render('Cell')}
-  //                   </td>
-  //                 )
-  //               })}
-  //             </tr>
-  //           )
-  //         })}
-  //       </tbody>
-  //     </table>
-  //   </div>
-  //   )
-  //}
-
+            )
+          })}
+        </tbody>
+      </table>
+    </div>
+  )
 
 }
 
