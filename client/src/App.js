@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import ReactDOM from 'react-dom/client';
 import ReminderTop from './ReminderTop';
 import ReminderBottom from './ReminderBottom';
@@ -8,19 +8,20 @@ function App() {
   const [buttonInfo, setButtonInfo] = useState("1 Day")
   const [reminderValueInDays, setReminderValueInDays] = useState(1)
   const [isSubmitClicked, setIsSubmitClicked] = useState(false)
+  const [listOfLinks, setListOfLinks] = useState(["item1"])
 
-  //const [reminderObject, setReminderObject] = useState({})
-  //setReminderObject({ "link": link, "buttonInfo": buttonInfo, "reminderValueInDays": reminderValueInDays })
-  //console.log("this is reminderObject from App.js");
-  //console.log(reminderObject);
-
-  //console.log("this is link from App.js: ", link);
-  //console.log("this is buttonInfo from App.js: ", buttonInfo);
-  //console.log("this is reminderValueInDays from App.js: ", reminderValueInDays);
   // TO DO: Handle "CUSTOM" selection
-  console.log("this is isSubmitClicked from App.js: ", isSubmitClicked);
 
-  // Create an array
+  // console.log("this is isSubmitClicked from App.js: ", isSubmitClicked);
+  // console.log("this is link: ", link);
+  // console.log("this is isSubmitClicked: ", isSubmitClicked); 
+  useEffect(() => {
+    if (isSubmitClicked === true) {
+      setListOfLinks(currentListOfLinks => [...currentListOfLinks, link])
+    }
+  }, [isSubmitClicked === true])
+
+  console.log("this is listOfLinks: ", listOfLinks);
 
   return (
     <>

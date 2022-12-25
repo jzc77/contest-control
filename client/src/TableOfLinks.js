@@ -2,21 +2,22 @@ import React, { useMemo, useState, useEffect } from "react";
 import { useTable } from 'react-table'
 
 function TableOfLinks({ link, buttonInfo, isSubmitClicked, setIsSubmitClicked }) {
+  // SN: pass in an array of objects, each object is a row
+  const testArray = [{col1: "test1", col2: "test2"}, {col1: "test3", col2: "test4"}]  // works
+
+  // SN: Package up link and buttonInfo into an object
+  // var listOfLinks = []
+  // var listOfButtonInfo = []
+
+  // if (listOfLinks.includes(link) === false) {
+  //   listOfLinks.push(link)
+  // }
+  
+  // console.log("this is listOfLinks: ", listOfLinks);
+
+  
   const data1 = useMemo(
-    () => [
-      {
-        col1: link,
-        col2: 'World',
-      },
-      {
-        col1: 'some test of very very very very very long text to see how it wraps around the table cell',
-        col2: 'rocks',
-      },
-      {
-        col1: 'whatever',
-        col2: 'you want',
-      },
-    ],
+    () => testArray,
     []
   )
 
@@ -38,7 +39,7 @@ function TableOfLinks({ link, buttonInfo, isSubmitClicked, setIsSubmitClicked })
   const data2 = useMemo(
     () => [
       {
-        col1: link,
+        col1: 'Hello2',
         col2: 'World2',
       },
       {
