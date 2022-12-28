@@ -9,10 +9,40 @@ function ReminderBottom({ reminderInfoList, handleDelete, handleFilter, link, li
 
   return (
     <>
-      <div>
-        {reminderInfoList.map(reminderInfo => {
+      <div className='ReminderBottomSubDiv'>
+        {/* <ReminderHeading /> */}
+        {reminderInfoList.map(reminderInfo => {  // make each ReminderInfo a row in a table
           return (
-            <ReminderInfo reminderInfo={reminderInfo} handleDelete={handleDelete} handleFilter={handleFilter} />
+            <div>
+              <ReminderInfo reminderInfo={reminderInfo} handleDelete={handleDelete} handleFilter={handleFilter} />
+              <table>
+                <thead>
+                  <tr className={"tableHeadElement"}>
+                    <th
+                    >
+                      List of links
+                    </th>
+                    <th
+                    >
+                      Remind me every
+                    </th>
+                  </tr>
+                </thead>
+
+                <tbody>
+                  <tr>
+                    <td
+                    >
+                      {reminderInfo.link}
+                    </td>
+                    <td
+                    >
+                      {reminderInfo.buttonInfo}
+                    </td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
           )
         })}
         <button style={{ margin: '20px' }} onClick={handleFilter}>Clear Completed</button>
