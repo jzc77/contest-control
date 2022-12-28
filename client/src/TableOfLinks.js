@@ -12,7 +12,7 @@ function TableOfLinks({ listOfLinks, listOfButtonInfo, isSubmitClicked }) {
     finalArrayOfObjects2.push(tempObj)
   }
 
-  useEffect(() => {
+  useEffect(() => { 
     setFinalArrayOfObjects(finalArrayOfObjects2)
   }, [finalArrayOfObjects2 && isSubmitClicked == true])
   console.log("this is finalArrayOfObjects2: ", finalArrayOfObjects2);
