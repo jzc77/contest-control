@@ -1,20 +1,33 @@
 import React from 'react'
 
-function Submit({ link, setIsSubmitClicked }) {
+function Submit({ link, isSubmitClicked, setIsSubmitClicked }) {
 
-  const handleClick = () => {
-    if (link !== "") {
+  const submitButton = document.querySelector(".submit-button");
+  document.addEventListener("mousedown", (e) => {
+    //console.log("this is e.target:");
+    //console.log(e.target);
+    if (submitButton.contains(e.target)) {
+      //console.log("clicked inside");
       setIsSubmitClicked(true)
     } else {
-      alert("Please enter a link")
+      //console.log("clicked outside");
+      setIsSubmitClicked(false)
     }
-  }
+  });
+  
+  // const handleClick = () => {
+  //   if (link !== "") {
+  //     setIsSubmitClicked(true)
+  //   } else {
+  //     alert("Please enter a link")
+  //   }
+  // }
 
   return (
     <button
       type="button"
       className="submit-button"
-      onClick={() => handleClick()}
+      //onClick={() => handleClick()}
     >SUBMIT
     </button>
   )
