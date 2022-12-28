@@ -11,7 +11,7 @@ function App() {
   // const [isSubmitClicked, setIsSubmitClicked] = useState(false)
   // const [listOfLinks, setListOfLinks] = useState([])
   // const [listOfButtonInfo, setListOfButtonInfo] = useState([])
-  const [reminderInfoList, setReminderList] = useState(data)
+  const [reminderInfoList, setReminderList] = useState([])
 
   // useEffect(() => {
   //   if (isSubmitClicked === true && link != "") {
@@ -20,9 +20,9 @@ function App() {
   //   }
   // }, [isSubmitClicked === true])
 
-  const addReminderInfo = (userInput) => {
+  const addReminderInfo = (userLinkInput, buttonInfo, reminderValueInDays) => {
     let copy = [...reminderInfoList];
-    copy = [...copy, { id: reminderInfoList.length + 1, link: userInput, delete: false }];  // need to add buttonInfo, add reminderValueInDays, add reminderMethod (Discord vs email)
+    copy = [...copy, { id: reminderInfoList.length + 1, link: userLinkInput, buttonInfo: buttonInfo, reminderValueInDays: reminderValueInDays, delete: false }];  // need to add buttonInfo, add reminderValueInDays, add reminderMethod (Discord vs email)
     setReminderList(copy);
   }
 
