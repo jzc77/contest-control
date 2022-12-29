@@ -14,15 +14,14 @@ function ReminderInfo({ reminderInfo, handleDelete }) {
   tempObj["col2"] = reminderInfo.buttonInfo
   finalArrayOfObjects2.push(tempObj)
 
-  console.log("this is finalArrayOfObjects2[0]:");
-  console.log(finalArrayOfObjects2[0]);
+  //console.log("this is finalArrayOfObjects2[0]:");
+  //console.log(finalArrayOfObjects2[0]);
 
   return (
     <div id={reminderInfo.id} key={reminderInfo.id + reminderInfo.link} name="reminderInfo" value={reminderInfo.id} onClick={handleClick} className={reminderInfo.delete ? "todo strike" : "todo"}>
-      {reminderInfo.link}
+      {/* {reminderInfo.link}
       {reminderInfo.buttonInfo}
-      {reminderInfo.reminderValueInDays}
-
+      {reminderInfo.reminderValueInDays} */}
 
       {/* <TableOfInfo reminderInfo={reminderInfo} /> */}
     </div>

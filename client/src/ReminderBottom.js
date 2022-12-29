@@ -6,29 +6,31 @@ import ReminderInfo from './ReminderInfo'
 
 function ReminderBottom({ reminderInfoList, handleDelete, handleFilter, link, listOfLinks, buttonInfo, listOfButtonInfo, isSubmitClicked, setIsSubmitClicked, finalArrayOfObjects }) {
   //console.log("this is listOfButtonInfo in RB.js: ", listOfButtonInfo);
-
+  console.log('this is reminderInfoList:');
+  console.log(reminderInfoList);
   return (
     <>
       <div className='ReminderBottomSubDiv'>
         {/* <ReminderHeading /> */}
+        <table>
+          <thead>
+            <tr className={"tableHeadElement"}>
+              <th
+              >
+                List of links
+              </th>
+              <th
+              >
+                Remind me every
+              </th>
+            </tr>
+          </thead>
+        </table>
         {reminderInfoList.map(reminderInfo => {  // make each ReminderInfo a row in a table
           return (
             <div>
               <ReminderInfo reminderInfo={reminderInfo} handleDelete={handleDelete} handleFilter={handleFilter} />
               <table>
-                <thead>
-                  <tr className={"tableHeadElement"}>
-                    <th
-                    >
-                      List of links
-                    </th>
-                    <th
-                    >
-                      Remind me every
-                    </th>
-                  </tr>
-                </thead>
-
                 <tbody>
                   <tr>
                     <td
@@ -44,6 +46,7 @@ function ReminderBottom({ reminderInfoList, handleDelete, handleFilter, link, li
               </table>
             </div>
           )
+
         })}
         <button style={{ margin: '20px' }} onClick={handleFilter}>Clear Completed</button>
       </div>

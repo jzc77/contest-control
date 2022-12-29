@@ -22,8 +22,6 @@ function ReminderTop({ addReminderInfo, link, setLink, isSubmitClicked, setIsSub
     setUserInput("");
   }
 
-  console.log("this is buttonInfo: ", buttonInfo);
-  console.log("this is reminderValueInDays: ", reminderValueInDays);
   return (
     <>
       <h1 className="siteTitle">Contest Control</h1>
