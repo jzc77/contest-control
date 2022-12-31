@@ -12,7 +12,8 @@ function App() {
   // const [listOfLinks, setListOfLinks] = useState([])
   // const [listOfButtonInfo, setListOfButtonInfo] = useState([])
   const [reminderInfoList, setReminderList] = useState([])
-
+  console.log('this is reminderInfoList:');
+  console.log(reminderInfoList);
   // useEffect(() => {
   //   if (isSubmitClicked === true && link != "") {
   //     setListOfLinks(currentListOfLinks => [...currentListOfLinks, link])
@@ -28,6 +29,7 @@ function App() {
 
   const handleDelete = (id) => {
     let mapped = reminderInfoList.map((link) => {
+      console.log("this is link.id:", link.id);
       return link.id === Number(id)
         ? { ...link, delete: !link.delete }
         : { ...link };
