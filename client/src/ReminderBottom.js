@@ -6,8 +6,9 @@ import ReminderInfo from './ReminderInfo'
 
 function ReminderBottom({ reminderInfoList, handleDelete, handleFilter, link, listOfLinks, buttonInfo, listOfButtonInfo, isSubmitClicked, setIsSubmitClicked, finalArrayOfObjects }) {
   //console.log("this is listOfButtonInfo in RB.js: ", listOfButtonInfo);
-  console.log('this is reminderInfoList:');
-  console.log(reminderInfoList);
+  // console.log('this is reminderInfoList:');
+  // console.log(reminderInfoList);
+
   return (
     <>
       <div className='ReminderBottomSubDiv'>
@@ -30,20 +31,6 @@ function ReminderBottom({ reminderInfoList, handleDelete, handleFilter, link, li
           return (
             <div>
               <ReminderInfo reminderInfo={reminderInfo} handleDelete={handleDelete} handleFilter={handleFilter} />
-              <table>
-                <tbody>
-                  <tr>
-                    <td
-                    >
-                      {reminderInfo.link}
-                    </td>
-                    <td
-                    >
-                      {reminderInfo.buttonInfo}
-                    </td>
-                  </tr>
-                </tbody>
-              </table>
             </div>
           )
 

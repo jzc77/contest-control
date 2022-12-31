@@ -19,6 +19,20 @@ function ReminderInfo({ reminderInfo, handleDelete }) {
 
   return (
     <div id={reminderInfo.id} key={reminderInfo.id + reminderInfo.link} name="reminderInfo" value={reminderInfo.id} onClick={handleClick} className={reminderInfo.delete ? "todo strike" : "todo"}>
+      <table>
+        <tbody>
+          <tr>
+            <td
+            >
+              {reminderInfo.link}
+            </td>
+            <td
+            >
+              {reminderInfo.buttonInfo}
+            </td>
+          </tr>
+        </tbody>
+      </table>
       {/* {reminderInfo.link}
       {reminderInfo.buttonInfo}
       {reminderInfo.reminderValueInDays} */}
