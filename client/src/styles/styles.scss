@@ -161,41 +161,16 @@ body {
   }
 }
 
-// .ReminderRowDiv {
-//   display: flex;
-//   align-items: center;
-//   justify-content: left;
-//   background-color: blue;
-//   a {
-//     margin: 0 50px 0;
-//     background-color: green;
-//   }
-//   p {
-//     // margin: 0 50px 0;
-//     background-color: purple;
-//   }
-// }
-
 @mixin commonRowItemStyle {
-  // make div half of parent div width
-  //width: 100%;
-  //width: 100%;
   // make the text be in a row
   display: flex;
   align-items: center;
   justify-content: left;
-  //overflow:hidden;
-
-
-
 }
 
 .ReminderRowDiv {
   @include commonRowItemStyle;
   background-color: green;
-  //overflow:hidden;
-
-
 }
 
 .LinkDiv {
@@ -207,10 +182,7 @@ body {
   text-overflow: ellipsis;
   white-space: nowrap;
   
-
-  //margin: 16px 0;
   a {
-    //margin: 16px 0;
     padding: 0 16px 0;
     //background-color: yellowgreen;
   }
@@ -218,12 +190,9 @@ body {
   @media (width: 100px) {
     width: 290px;
   }
-
-
 }
 
 .ButtonInfoDiv {
-  //@include commonRowItemStyle;
   background-color: burlywood;
   width: "100%";
   padding: 0 16px 0;
@@ -235,9 +204,6 @@ body {
 }
 
 table {
-  //@include commonRowItemStyle;
-  //background-color: green;
-  
   border: solid 1px blue;
   table-layout: fixed;
   width: 100%;
@@ -245,8 +211,6 @@ table {
 }
 
 thead {
-    //@include commonRowItemStyle;
-    //background-color: yellow;
     max-width: 80%;
     text-overflow: ellipsis;
     white-space: nowrap;
@@ -254,22 +218,10 @@ thead {
 }
 
 tr {
-    //@include commonRowItemStyle;
-    //background-color: red;
     max-width: 80%;
     text-overflow: ellipsis;
     white-space: nowrap;
 
-    // display: flex;
-    // align-items: center;
-    // justify-content: left;
-    
-    // padding: 16px 0;
-    // width: 50px;
-    // overflow: hidden;
-    // max-width: 80%;
-    //text-overflow: ellipsis;
-    // white-space: nowrap;
     :nth-child(1) {
       width: 80%;
     }
@@ -284,55 +236,46 @@ tr {
 }
 
 th {
-    //@include commonRowItemStyle;
     border-bottom: 'solid 3px red';
     background-color: 'red';
-    // color: 'black',
     font-weight: 'bold';
     border: solid 1px gray;
-
-    //padding: 0 16px 0;
-
-    //width: 20px;
-    //white-space: nowrap;
-    // :nth-child(1) {
-    //   width: 60px;
-    // }
-
-
-    // max-width: 20%;
-    // text-overflow: ellipsis;
-    // white-space: nowrap;
-
-    // :nth-child(2) {
-    //   // align items to the center
-    //   display: flex;
-    //   align-items: center;
-    //   justify-content: center;
-    //   width: 20%;
-    // }
-
 }
 
-tbody {
-    //@include commonRowItemStyle;
-    //background-color: blue;
-    //width: "20px";
-}
+.tableRowForHeaderElement {
+  max-width: 80%;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+
+  :nth-child(1) {
+    width: 80%;
+  }
+
+  :nth-child(2) {
+    // align items to the center
+    display: inline-block;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+  }
+ }
+
+ .tableHeadElement {
+  //background-color: rgb(221, 126, 25);
+  //border: solid 1px purple;
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+  width: 70px;
+ }
+
 
 td {
-    //@include commonRowItemStyle;
-    background-color: rgb(221, 126, 25);
-    // padding: 5px;
+    //background-color: rgb(221, 126, 25);
     border: solid 1px gray;
-    // background-color: 'papayawhip';
-    // width: "50%";
-    // overflow: "clip";
-
     overflow: hidden;
     white-space: nowrap;
     text-overflow: ellipsis;
-
     width: 70px;
 }
 

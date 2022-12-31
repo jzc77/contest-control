@@ -15,12 +15,12 @@ function ReminderBottom({ reminderInfoList, handleDelete, handleFilter, link, li
         {/* <ReminderHeading /> */}
         <table>
           <thead>
-            <tr className={"tableHeadElement"}>
+            <tr className={"tableRowForHeaderElement"}>
               <th
               >
                 List of links
               </th>
-              <th
+              <th className={"tableHeadElement"}
               >
                 Remind me every
               </th>
