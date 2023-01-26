@@ -12,7 +12,7 @@ The application will then send a reminder to the user via Discord and/or email a
 1. This is the main page.
 <div align="center">
   <img alt="Main page" src="./readme-pics/pic1-start.png" width="500px"/>
-  <h3 align="center">Contest Control main page designed with React, SCSS, and Material UI</h3>
+  <p align="center">Contest Control main page designed with React, SCSS, and Material UI</p>
 </div>
 </br>
 
@@ -21,14 +21,14 @@ The application will then send a reminder to the user via Discord and/or email a
     * The "Clear Completed" is working. The user needs to click on the row that they would like to delete and it is removed from the list.
 <div align="center">
   <img alt="Main page" src="./readme-pics/pic2-demo-data-highlighted.png" width="500px"/>
-  <h3 align="center">Paste a link, select a time interval, and see it displayed after clicking SUBMIT</h3>
+  <p align="center">Paste a link, select a time interval, and see it displayed after clicking SUBMIT</p>
 </div>
 </br>
 
 3. There is also an option to select a custom time interval. This is also a work in progress.
 <div align="center">
   <img alt="Main page" src="./readme-pics/pic3-demo-custom.png" width="500px"/>
-  <h3 align="center">Inputting a custom time interval</h3>
+  <p align="center">Inputting a custom time interval</p>
 </div>
 
 ## Next steps
